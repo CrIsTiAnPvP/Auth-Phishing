@@ -41,7 +41,7 @@ def menu():
     print(f'''
     {c}Phishing Tool 
 
-    {r}Coded By {g}CrIsTiAn_PvP
+    {r}Coded By {g}KolaKao_YT
 
     {y}version: {e}{v}
 
